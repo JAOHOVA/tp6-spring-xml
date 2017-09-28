@@ -27,10 +27,10 @@ public class EmployeeDAO implements IEmplooyeeDAO {
 
 		l.info("Debut de la méthode addEmployee");
 
-		final String INSERT_QUERY = "INSERT INTO employe (login, email, password, prenom, nom, role) VALUES (?,?,?,?,?,?)";
+		final String INSERT_QUERY = "INSERT INTO employe (login, password, nom, prenom, email, role) VALUES (?,?,?,?,?,?)";
 
-		jdbcTemplate.update(INSERT_QUERY, new Object[] { employee.getLogin(), employee.getEmail(),
-				employee.getPassword(), employee.getPrenom(), employee.getNom(), employee.getRole() });
+		jdbcTemplate.update(INSERT_QUERY, new Object[] { employee.getLogin(), employee.getPassword(), employee.getNom(), employee.getPrenom(), employee.getEmail(),
+				   employee.getRole() });
 
 		l.info("Fin de la méthode addEmploye");
 	}
@@ -40,7 +40,7 @@ public class EmployeeDAO implements IEmplooyeeDAO {
 
 		l.info("Debut de la méthode saveEmployee");
 
-		final String UPDATE_QUERY = "UPDATE employe set login = ?, email = ?, password = ?, prenom = ?, nom = ?, role = ?";
+		final String UPDATE_QUERY = "UPDATE employe set login = ?,  password = ? , nom = ?, prenom = ? ,email = ?, role = ?";
 
 		jdbcTemplate.update(UPDATE_QUERY, new Object[] { employee.getLogin(), employee.getEmail(),
 				employee.getPassword(), employee.getPrenom(), employee.getNom(), employee.getRole() });
